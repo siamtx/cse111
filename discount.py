@@ -7,15 +7,27 @@
 ## total amount due.
 ##############################################################
 
-import datetime
+from datetime import datetime
+
+current_date_and_time = datetime.now()
 
 sub = float(input("Enter the total: "))
-day = datetime()
+day = current_date_and_time.weekday()
 
-if (day == Tuesday && sub >= 50):
-    sub - sub * 0.10
-elif (day == Wednesday && sub >= 50):
-    sub - sub * 0.10
+if (day == 1):
+    if(sub >= 50):
+        rebate = sub - (sub * 0.10)
+        tax = rebate * 0.06
+        print(f"{rebate:.2f}")
+        print(f"{tax:.2f}")
+elif (day == 4):
+    if (sub >= 50):
+        discount = (sub - sub * 0.10)
+        tax = discount * 0.06
+    print(f"{discount:.2f}")
+    print(f"{tax:.2f}")
+elif (day == 4):
+    if (sub < 50):
+        print("No discount. You did not buiy enough.")
 else:
     print("No discount.  Today is not Tuesday or Wednesday.")
-
