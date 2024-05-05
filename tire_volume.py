@@ -33,46 +33,38 @@ if (w == 205):
     if (ar == 55):
         if(d == 15):
             print("Your tire price is $121.08.")
-elif (w == 205):
-        if (ar == 60):
-            if(d == 15):
-                print("Your tire price is $114.99.")
-elif (w == 205):
-        if (ar == 65):
-            if(d == 15):
-                print("Your tire price is $115.99.")
-elif (w == 205):
-        if (ar == 70):
-            if(d == 15):
-                print("Your tire price is $109.99.")
+            response = input("Would you like to purchase these tires? ")
+            if (response == "yes"):
+                name = input("Please enter your phone number for a follow up call. ")
+                with open("volumes.txt", mode="at") as volumes_file:
+                    print(f"{present_date}, {w}, {ar}, {d}, {t:.2f}, {name}", file = volumes_file)
 elif (w == 215):
         if (ar == 55):
             if(d == 16):
                 print("Your tire price is $186.99.")
-elif (w == 215):
-        if (ar == 60):
-            if(d == 16):
-                print("Your tire price is $185.99.")
+                response = input("Would you like to purchase these tires? ")
+                if (response == "yes"):
+                    name = input("Please enter your phone number for a follow up call. ")
+                    with open("volumes.txt", mode="at") as volumes_file:
+                        print(f"{present_date}, {w}, {ar}, {d}, {t:.2f}, {name}", file = volumes_file)
 elif (w == 215):
         if (ar == 65):
             if(d == 16):
                 print("Your tire price is $170.99.")
-elif (w == 215):
-        if (ar == 70):
-            if(d == 16):
-                print("Your tire price is $188.99.")
+                response = input("Would you like to purchase these tires? ")
+                if (response == "yes"):
+                    name = input("Please enter your phone number for a follow up call. ")
+                    with open("volumes.txt", mode="at") as volumes_file:
+                        print(f"{present_date}, {w}, {ar}, {d}, {t:.2f}, {name}", file = volumes_file)
 elif (w == 225):
         if (ar == 55):
             if(d == 17):
                 print("Your tire price is $214.89.")
-elif (w == 225):
-        if (ar == 60):
-            if(d == 17):
-                print("Your tire price is $212.99.")
-elif (w == 225):
-        if (ar == 65):
-            if(d == 17):
-                print("Your tire price is $182.26.")
+                response = input("Would you like to purchase these tires? ")
+                if (response == "yes"):
+                    name = input("Please enter your phone number for a follow up call. ")
+                    with open("volumes.txt", mode="at") as volumes_file:
+                        print(f"{present_date}, {w}, {ar}, {d}, {t:.2f}, {name}", file = volumes_file)
 else: print("We do not have your tire size.")
 
 
