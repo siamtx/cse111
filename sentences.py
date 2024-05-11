@@ -15,23 +15,12 @@ def main():
     verb = get_verb(quantity, tense)
 
     # Put it all together and print the sentence
-    make_sentence("single", "past")
+    make_sentence(single, past)
     #make_sentence("single", "present")
     #make_sentence("single", "future")
     #make_sentence("plural", "past")
     #make_sentence("plural", "present")
     #make_sentence("plural", "future")
-
-
-
-    """
-    a.	single	past
-    b.	single	present
-    c.	single	future
-    d.	plural	past
-    e.	plural	present
-    f.	plural	future
-    """
 
 
 # Provides a random determing word.
@@ -58,10 +47,7 @@ def get_determiner(quantity):
     # Randomly choose and return a determiner.
     word = random.choice(words)
 
-    # Capitalize the first letter.
-    cap_word = word.capitalize()
-
-    return cap_word
+    return word
 
 # Geta a noun from the list.
 def get_noun(quantity):
@@ -143,7 +129,14 @@ def make_sentence(quantity, tense):
     quantity and tense of the verb will match the number
     and tense in the quantity and tense parameters.
     """
-    print(f"{word}, {noun}, {verb}. ")
+    word = get_determiner(quantity)
+    noun = get_noun(quantity)
+    verb = get_verb(quantity, tense)
+
+    # Capitalize the first letter.
+    cap_word = word.capitalize()
+
+    print(f"{cap_word}, {noun}, {verb}. ")
 
 
 
