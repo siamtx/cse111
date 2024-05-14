@@ -15,11 +15,11 @@ def main():
     # Call the lp100k_from_mpg function to convert the
     # miles per gallon to liters per 100 kilometers and
     # store the result in a variable named lp100k.
-    lpk100k = lp100k_from_mpg(mpg)
+    lp100k = lp100k_from_mpg(mpg)
 
     # Display the results for the user to see.
-    print(f"{miles_per_gallon} miles per gallon")
-    print(f"{lp100k_from_mpg}liters per 100 kilometers")
+    print(f"{mpg:.2f} miles per gallon")
+    print(f"{lp100k:.2f}liters per 100 kilometers")
 
     pass
 
@@ -47,7 +47,7 @@ def lp100k_from_mpg(mpg):
     Return: The converted value in liters per 100km.
     """
 
-    lp100k = 235.315/mpg
+    lp100k = 235.315 / mpg
 
     return lp100k
 

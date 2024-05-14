@@ -6,16 +6,40 @@ import random
 def main():
 
     # Call the first function
-    word = get_determiner(quantity)
+    word = get_determiner('single')
+    noun = get_noun("single")
+    verb = get_verb("past", "single")
+    sentence = make_sentence("single", "past")
 
-    # Call the second function
-    noun = get_noun(quantity)
+    word = get_determiner('single')
+    noun = get_noun("single")
+    verb = get_verb("present", "single")
+    sentence = make_sentence("single", "present")
 
-    # Call the third function
-    verb = get_verb(quantity, tense)
+    word = get_determiner('single')
+    noun = get_noun("single")
+    verb = get_verb("future", "single")
+    sentence = make_sentence("single", "present")
+
+    word = get_determiner('plural')
+    noun = get_noun("plural")
+    verb = get_verb("past", "plural")
+    sentence = make_sentence("single", "present")
+
+    word = get_determiner('plural')
+    noun = get_noun("plural")
+    verb = get_verb("present", "plural")
+    sentence = make_sentence("single", "present")
+
+    word = get_determiner('plural')
+    noun = get_noun("plural")
+    verb = get_verb("future", "plural")
+    sentence = make_sentence("single", "present")
+    
 
     # Put it all together and print the sentence
-    make_sentence(single, past)
+    #make_sentence(quantity, tense)
+    #make_sentence("single", "past")
     #make_sentence("single", "present")
     #make_sentence("single", "future")
     #make_sentence("plural", "past")
@@ -77,7 +101,7 @@ def get_noun(quantity):
     return noun
 
 # Get a verb from the list
-def get_verb(quantity, tense):
+def get_verb(tense, quantity):
     """Return a randomly chosen verb. If tense is "past",
     this function will return one of these ten verbs:
         "drank", "ate", "grew", "laughed", "thought",
@@ -98,21 +122,21 @@ def get_verb(quantity, tense):
 
     Parameters
         quantity: an integer that determines if the
-            returned verb is single or plural.
+            returned verb is single or plural.?
         tense: a string that determines the verb conjugation,
             either "past", "present" or "future".
     Return: a randomly chosen verb.
     """
-    if (tense == past):
+    if (tense == 'past'):
         words =[ "drank", "ate", "grew", "laughed", "thought",
         "ran", "slept", "talked", "walked", "wrote"]
-    elif (tense == present and quantity == 1):
+    elif (tense == 'present' and quantity == 1):
         words = ["drinks", "eats", "grows", "laughs", "thinks",
         "runs", "sleeps", "talks", "walks", "writes"]
-    elif (tense == present and quantity != 1):
+    elif (tense == 'present' and quantity != 1):
         words = ["drink", "eat", "grow", "laugh", "think",
         "run", "sleep", "talk", "walk", "write"]
-    elif (tense == future):
+    elif (tense == 'future'):
         words = ["will drink", "will eat", "will grow", "will laugh",
         "will think", "will run", "will sleep", "will talk",
         "will walk", "will write"]
@@ -131,7 +155,7 @@ def make_sentence(quantity, tense):
     """
     word = get_determiner(quantity)
     noun = get_noun(quantity)
-    verb = get_verb(quantity, tense)
+    verb = get_verb(tense, quantity)
 
     # Capitalize the first letter.
     cap_word = word.capitalize()
