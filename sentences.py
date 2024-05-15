@@ -9,6 +9,7 @@ def main():
     word = get_determiner('single')
     noun = get_noun("single")
     verb = get_verb("past", "single")
+    preposition = get_preposition()
     sentence = make_sentence("single", "past")
 
     word = get_determiner('single')
@@ -144,6 +145,46 @@ def get_verb(tense, quantity):
     verb = random.choice(words)
     return verb
 
+
+# Get a preposition from the list
+def get_preposition():
+    """Return a randomly chosen preposition
+    from this list of prepositions:
+        "about", "above", "across", "after", "along",
+        "around", "at", "before", "behind", "below",
+        "beyond", "by", "despite", "except", "for",
+        "from", "in", "into", "near", "of",
+        "off", "on", "onto", "out", "over",
+        "past", "to", "under", "with", "without"
+
+    Return: a randomly chosen preposition.
+    """
+    prep = ["about", "above", "across", "after", "along",
+        "around", "at", "before", "behind", "below",
+        "beyond", "by", "despite", "except", "for",
+        "from", "in", "into", "near", "of",
+        "off", "on", "onto", "out", "over",
+        "past", "to", "under", "with", "without"]
+
+    preposition = random.choice(prep)
+    return preposition
+
+# Get prepostional phrase
+def get_prepositional_phrase(quantity):
+    """Build and return a prepositional phrase composed
+    of three words: a preposition, a determiner, and a
+    noun by calling the get_preposition, get_determiner,
+    and get_noun functions.
+
+    Parameter
+        quantity: an integer that determines if the
+            determiner and noun in the prepositional
+            phrase returned from this function should
+            be single or pluaral.
+    Return: a prepositional phrase.
+    """
+
+
 # Makes a sentence from input
 def make_sentence(quantity, tense):
     """Build and return a sentence with three words:
@@ -156,11 +197,14 @@ def make_sentence(quantity, tense):
     word = get_determiner(quantity)
     noun = get_noun(quantity)
     verb = get_verb(tense, quantity)
+    preposition = get_preposition()
 
     # Capitalize the first letter.
     cap_word = word.capitalize()
 
     print(f"{cap_word}, {noun}, {verb}. ")
+
+
 
 
 
