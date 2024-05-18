@@ -7,34 +7,63 @@ def main():
 
     # Call the first function
     word = get_determiner('single')
+    adjective = get_adjective()
     noun = get_noun("single")
+    adverb = get_adverb()
     verb = get_verb("past", "single")
     preposition = get_preposition()
+    phrase = get_prepositional_phrase("quantity")
+    phrase1 = get_prepositional_phrase("quantity")
     sentence = make_sentence("single", "past")
 
     word = get_determiner('single')
+    adjective = get_adjective()
     noun = get_noun("single")
+    adverb = get_adverb()
     verb = get_verb("present", "single")
+    preposition = get_preposition()
+    phrase = get_prepositional_phrase("quantity")
+    phrase1 = get_prepositional_phrase("quantity")
     sentence = make_sentence("single", "present")
 
     word = get_determiner('single')
+    adjective = get_adjective()
     noun = get_noun("single")
+    adverb = get_adverb()
     verb = get_verb("future", "single")
+    preposition = get_preposition()
+    phrase = get_prepositional_phrase("quantity")
+    phrase1 = get_prepositional_phrase("quantity")
     sentence = make_sentence("single", "present")
 
     word = get_determiner('plural')
+    adjective = get_adjective()
     noun = get_noun("plural")
+    adverb = get_adverb()
     verb = get_verb("past", "plural")
+    preposition = get_preposition()
+    phrase = get_prepositional_phrase("quantity")
+    phrase1 = get_prepositional_phrase("quantity")
     sentence = make_sentence("single", "present")
 
     word = get_determiner('plural')
+    adjective = get_adjective()
     noun = get_noun("plural")
+    adverb = get_adverb()
     verb = get_verb("present", "plural")
+    preposition = get_preposition()
+    phrase = get_prepositional_phrase("quantity")
+    phrase1 = get_prepositional_phrase("quantity")
     sentence = make_sentence("single", "present")
 
     word = get_determiner('plural')
+    adjective = get_adjective()
     noun = get_noun("plural")
+    adverb = get_adverb()
     verb = get_verb("future", "plural")
+    preposition = get_preposition()
+    phrase = get_prepositional_phrase("quantity")
+    phrase1 = get_prepositional_phrase("quantity")
     sentence = make_sentence("single", "present")
     
 
@@ -183,7 +212,54 @@ def get_prepositional_phrase(quantity):
             be single or pluaral.
     Return: a prepositional phrase.
     """
+    preposition = get_preposition()
+    word = get_determiner(quantity)
+    noun = get_noun(quantity)
 
+    phrase = f"{preposition} {word} {noun}"
+
+    return phrase
+    
+
+# Defining for a second Prepositional phrase
+def get_prepositional_phrase(quantity):
+    """Build and return a prepositional phrase composed
+    of three words: a preposition, a determiner, and a
+    noun by calling the get_preposition, get_determiner,
+    and get_noun functions.
+
+    Parameter
+        quantity: an integer that determines if the
+            determiner and noun in the prepositional
+            phrase returned from this function should
+            be single or pluaral.
+    Return: a prepositional phrase.
+    """
+    preposition = get_preposition()
+    word = get_determiner(quantity)
+    noun = get_noun(quantity)
+
+    phrase1 = f"{preposition} {word} {noun}"
+
+    return phrase1
+    
+# Randomly chooses a adjective
+def get_adjective():
+    adject = ["blue", "red", "fast", "slow", 
+    "strong", "weak", "round", "poosh"]
+
+    adjective = random.choice(adject)
+
+    return adjective
+
+# Randomly chooses a adverb
+def get_adverb():
+    adv = ["quickly", "slowly", "poorly", "smelly", 
+    "richly", "weakly", "greatly"]
+
+    adverb = random.choice(adv)
+
+    return adverb
 
 # Makes a sentence from input
 def make_sentence(quantity, tense):
@@ -195,17 +271,17 @@ def make_sentence(quantity, tense):
     and tense in the quantity and tense parameters.
     """
     word = get_determiner(quantity)
+    adjective = get_adjective()
     noun = get_noun(quantity)
+    adverb = get_adverb()
     verb = get_verb(tense, quantity)
-    preposition = get_preposition()
-
+    phrase = get_prepositional_phrase(quantity)
+    phrase1 = get_prepositional_phrase(quantity)
+    
     # Capitalize the first letter.
     cap_word = word.capitalize()
 
-    print(f"{cap_word}, {noun}, {verb}. ")
-
-
-
+    print(f"{cap_word} {adjective} {noun} {adverb} {verb} {phrase} {phrase1}.")
 
 
 main()
