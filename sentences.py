@@ -5,7 +5,8 @@ import random
 # Main program to call the functions and print c
 def main():
 
-    # Call the first function
+    # The frist call of arguments for functions for 
+    # single, past.
     word = get_determiner('single')
     adjective = get_adjective()
     noun = get_noun("single")
@@ -16,6 +17,8 @@ def main():
     phrase1 = get_prepositional_phrase("quantity")
     sentence = make_sentence("single", "past")
 
+    # The second call of arguments for functions for 
+    # single, present.
     word = get_determiner('single')
     adjective = get_adjective()
     noun = get_noun("single")
@@ -26,6 +29,8 @@ def main():
     phrase1 = get_prepositional_phrase("quantity")
     sentence = make_sentence("single", "present")
 
+    # The third group of arguments for functions for 
+    # single, future.
     word = get_determiner('single')
     adjective = get_adjective()
     noun = get_noun("single")
@@ -36,6 +41,8 @@ def main():
     phrase1 = get_prepositional_phrase("quantity")
     sentence = make_sentence("single", "present")
 
+    # The third group of arguments for functions for 
+    # plural, past.
     word = get_determiner('plural')
     adjective = get_adjective()
     noun = get_noun("plural")
@@ -46,6 +53,8 @@ def main():
     phrase1 = get_prepositional_phrase("quantity")
     sentence = make_sentence("single", "present")
 
+    # The third group of arguments for functions for 
+    # plural, present.
     word = get_determiner('plural')
     adjective = get_adjective()
     noun = get_noun("plural")
@@ -56,6 +65,8 @@ def main():
     phrase1 = get_prepositional_phrase("quantity")
     sentence = make_sentence("single", "present")
 
+    # The third group of arguments for functions for 
+    # plural, future.
     word = get_determiner('plural')
     adjective = get_adjective()
     noun = get_noun("plural")
@@ -77,7 +88,8 @@ def main():
     #make_sentence("plural", "future")
 
 
-# Provides a random determing word.
+# Uses an if/else qualifier to provide a 
+#random determing word based upon the argument.
 def get_determiner(quantity):
     """Return a randomly chosen determiner. A determiner is
     a word like "the", "a", "one", "some", "many".
@@ -103,7 +115,8 @@ def get_determiner(quantity):
 
     return word
 
-# Geta a noun from the list.
+# Uses random function to choose a noun from the list
+# based upon the argument.
 def get_noun(quantity):
     """Return a randomly chosen noun.
     If quantity is 1, this function will
@@ -130,7 +143,7 @@ def get_noun(quantity):
     noun = random.choice(words)
     return noun
 
-# Get a verb from the list
+# Gets a verb from the list using if/else and arguments.
 def get_verb(tense, quantity):
     """Return a randomly chosen verb. If tense is "past",
     this function will return one of these ten verbs:
@@ -175,7 +188,8 @@ def get_verb(tense, quantity):
     return verb
 
 
-# Get a preposition from the list
+# Gets a preposition from the list using the
+# random function.
 def get_preposition():
     """Return a randomly chosen preposition
     from this list of prepositions:
@@ -198,7 +212,9 @@ def get_preposition():
     preposition = random.choice(prep)
     return preposition
 
-# Get prepostional phrase
+# Returns a prepostional phrase by calling the
+# get_determiner(), get_preposition(), and
+# get_noun().
 def get_prepositional_phrase(quantity):
     """Build and return a prepositional phrase composed
     of three words: a preposition, a determiner, and a
@@ -221,7 +237,9 @@ def get_prepositional_phrase(quantity):
     return phrase
     
 
-# Defining for a second Prepositional phrase
+# Returns a second prepostional phrase by calling the
+# get_determiner(), get_preposition(), and
+# get_noun().
 def get_prepositional_phrase(quantity):
     """Build and return a prepositional phrase composed
     of three words: a preposition, a determiner, and a
@@ -243,7 +261,8 @@ def get_prepositional_phrase(quantity):
 
     return phrase1
     
-# Randomly chooses a adjective
+# Uses the random() to choose an adjective
+# from the provided list. 
 def get_adjective():
     adject = ["blue", "red", "fast", "slow", 
     "strong", "weak", "round", "poosh"]
@@ -252,7 +271,8 @@ def get_adjective():
 
     return adjective
 
-# Randomly chooses a adverb
+# Uses the random() to choose an adverb
+# from the provided list. 
 def get_adverb():
     adv = ["quickly", "slowly", "poorly", "smelly", 
     "richly", "weakly", "greatly"]
@@ -261,7 +281,8 @@ def get_adverb():
 
     return adverb
 
-# Makes a sentence from input
+# Calls all the function to make a sentence from
+# the arguments provided.
 def make_sentence(quantity, tense):
     """Build and return a sentence with three words:
     a determiner, a noun, and a verb. The grammatical
@@ -283,5 +304,5 @@ def make_sentence(quantity, tense):
 
     print(f"{cap_word} {adjective} {noun} {adverb} {verb} {phrase} {phrase1}.")
 
-
+# Calls the main() to execute the program.
 main()
