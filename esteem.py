@@ -220,6 +220,7 @@ def score(one, two, three, four, five, six,
         six + seven + eight + nine + ten)
     
     return total
+
 def results(total):
     print(f"Your score is {total}.")
     print("A score below 15 may indicate problematic low self-esteem.")
