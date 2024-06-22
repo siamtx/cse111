@@ -17,20 +17,19 @@ def main():
     # chemical formula given by the user to a compound
     # list that stores element symbols and the quantity
     # of atoms of each element in the molecule.
-    parse_formula(formula, periodic_table_dict)
+    parse_formula(formula, make_periodic_table)
 
     # Call the compute_molar_mass function to compute the
     # molar mass of the molecule from the compound list.
-    compute_molar_mass()
+    compute_molar_mass(parse_formula, periodic_table_dict)
 
     # Compute the number of moles in the sample.
-    moles = atomic_mass / compute_molar_mass() 
+    moles = (mass / compute_molar_mass)
     # Print the molar mass.
-    print(f"Then molar mass is: {compute_molar_mass()} ")
+    print(f"Then molar mass is: {compute_molar_mass} ")
 
     # Print the number of moles.
-    print(f"The numbr of moles is: {moles}")
-
+    print(f"The number of moles is: {moles}")
 
 
 def make_periodic_table():
