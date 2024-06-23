@@ -158,7 +158,7 @@ def print_marriage(marriage_dict, people_dict):
 
         # Use the husband person key to get the husbands data
         # from the people dictionary and then get the husband's
-        # naame and birth year from is data. 
+        # name and birth year from is data. 
 
         husband_list = people_dict[husband_key]
         husband_name = husband_list[NAME_INDEX]
