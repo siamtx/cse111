@@ -1,9 +1,9 @@
-# Copyright 2020, Brigham Young University-Idaho. All rights reserved.
 
 import tkinter as tk
 from tkinter import Frame, Label, Button
 from number_entry import IntEntry
 
+import math
 
 def main():
     # Create the Tk root object.
@@ -48,21 +48,21 @@ def populate_main_window(frm_main):
     Return: nothing
     """
     # Create a label that displays "Age:"
-    lbl_age = Label(frm_main, text="Age (12 - 90):")
+    lbl_age = Label(frm_main, text="Enter a radius:")
 
     # Create an integer entry box where the user will enter her age.
-    ent_age = IntEntry(frm_main, width=4, lower_bound=12, upper_bound=90)
+    ent_age = IntEntry(frm_main, width=4, lower_bound=0, upper_bound=90)
 
     # Create a label that displays "years"
-    lbl_age_units = Label(frm_main, text="years")
+    lbl_age_units = Label(frm_main, text="centimeters")
 
     # Create a label that displays "Rates:"
-    lbl_rates = Label(frm_main, text="Rates:")
+    lbl_rates = Label(frm_main, text="Area:")
 
     # Create labels that will display the results.
     lbl_slow = Label(frm_main, width=3)
-    lbl_fast = Label(frm_main, width=3)
-    lbl_rate_units = Label(frm_main, text="beats/minute")
+    #lbl_fast = Label(frm_main, width=3)
+    lbl_rate_units = Label(frm_main, text="centimeters")
 
     # Create the Clear button.
     btn_clear = Button(frm_main, text="Clear")
@@ -74,8 +74,8 @@ def populate_main_window(frm_main):
 
     lbl_rates.grid(     row=1, column=0, padx=(30,3), pady=3)
     lbl_slow.grid(      row=1, column=1, padx=3, pady=3)
-    lbl_fast.grid(      row=1, column=2, padx=3, pady=3)
-    lbl_rate_units.grid(row=1, column=3, padx=0, pady=3)
+    #lbl_fast.grid(      row=1, column=2, padx=3, pady=3)
+    lbl_rate_units.grid(row=1, column=2, padx=0, pady=3)
 
     btn_clear.grid(row=2, column=0, padx=3, pady=3, columnspan=4, sticky="w")
 
@@ -89,24 +89,28 @@ def populate_main_window(frm_main):
             # Get the user's age.
             age = ent_age.get()
 
+            # Area of a circle: a = π r2
+
             # Compute the user's maximum heart rate.
-            max_rate = 220 - age
+            max = math.pi * age**2
 
             # Compute the user's slowest and
             # fastest beneficial heart rates.
-            slow = max_rate * 0.65
-            fast = max_rate * 0.85
+            slow = max
+            #fast = max_rate * 0.85
 
             # Display the slowest and fastest benficial
             # heart rates for the user to see.
             lbl_slow.config(text=f"{slow:.0f}")
-            lbl_fast.config(text=f"{fast:.0f}")
+            #lbl_fast.config(text=f"{fast:.0f}")
+
+            
 
         except ValueError:
             # When the user deletes all the digits in the age
             # entry box, clear the slowest and fastest labels.
             lbl_slow.config(text="")
-            lbl_fast.config(text="")
+            #lbl_fast.config(text="")
 
 
     # This function will be called each time
@@ -116,7 +120,7 @@ def populate_main_window(frm_main):
         btn_clear.focus()
         ent_age.clear()
         lbl_slow.config(text="")
-        lbl_fast.config(text="")
+        #lbl_fast.config(text="")
         ent_age.focus()
 
     # Bind the calculate function to the age entry box so
